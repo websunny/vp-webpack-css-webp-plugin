@@ -19,7 +19,7 @@ function handleCss(dir, publicPath, postfix) {
     const filePath = `${dir}/${file}`;
     const info = fs.statSync(filePath);
     if (info.isDirectory()) {
-      handleCss(filePath);
+      handleCss(filePath, publicPath, postfix);
     } else {
       if (file.match(/\.css$/) && !file.match(/\.webp\.css$/)) {
         let result = fs.readFileSync(filePath, 'utf-8');
